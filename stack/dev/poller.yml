@@ -1,0 +1,39 @@
+queues:
+  - name: dev-poller
+    state: enabled
+    priority: 1
+    compute_environments:
+      - name: dev-poller
+        order: 1
+
+compute_environments:
+  - name: dev-poller
+    type: managed
+    state: enabled
+    serviceRole: arn:aws:iam::xxxxx:role/service-role/AWSBatchServiceRole
+    compute_resources:
+        type: ec2
+        instanceRole: arn:aws:iam::xxxxxx:instance-profile/ecsInstanceRole
+        instanceTypes:
+          - optimal
+        maxvCpus: 256
+        minvCpus: 0
+        desiredvCpus: 0
+        ec2KeyPair: asdev
+        securityGroupIds:
+          - sg-0d475b44
+        subnets:
+          - subnet-7e4b5323
+        tags:
+            environment: dev
+            Name: batchjob 
+
+job_definitions:
+  - name: dev-poller
+    container:
+        image: xxxxxxxx.dkr.ecr.us-east-1.amazonaws.com/poller:1.0-SNAPSHOT 
+        jobRoleArn: arn:aws:iam::xxxxx:role/batchjob_role
+        memory: 1000
+        vcpus: 1
+    retryStrategy:
+        attempts: 3

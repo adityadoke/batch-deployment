@@ -1,0 +1,39 @@
+queues:
+  - name: dev-processor
+    state: enabled
+    priority: 1
+    compute_environments:
+      - name: dev-processor
+        order: 1
+
+compute_environments:
+  - name: dev-processor
+    type: managed
+    state: enabled
+    serviceRole: arn:aws:iam::xxxxx:role/service-role/AWSBatchServiceRole
+    compute_resources:
+        type: ec2
+        instanceRole: arn:aws:iam::xxxxx:instance-profile/ecsInstanceRole
+        instanceTypes:
+          - optimal
+        maxvCpus: 256
+        minvCpus: 0
+        desiredvCpus: 0
+        ec2KeyPair: dev
+        securityGroupIds:
+          - sg-0d475b44
+        subnets:
+          - subnet-baf654e7
+        tags:
+            environment: dev
+            Name: batchjob
+
+job_definitions:
+  - name: dev-processor
+    container:
+        image: xxxxxxx.dkr.ecr.us-east-1.amazonaws.com/processor:1.0-SNAPSHOT 
+        jobRoleArn: arn:aws:iam::xxxxxxx:role/batchjob_role
+        memory: 2000
+        vcpus: 1
+    retryStrategy:
+        attempts: 3

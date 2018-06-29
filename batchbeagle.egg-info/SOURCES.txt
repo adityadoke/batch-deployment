@@ -1,0 +1,12 @@
+setup.py
+batchbeagle/__init__.py
+batchbeagle/config.py
+batchbeagle/dplycli.py
+batchbeagle.egg-info/PKG-INFO
+batchbeagle.egg-info/SOURCES.txt
+batchbeagle.egg-info/dependency_links.txt
+batchbeagle.egg-info/entry_points.txt
+batchbeagle.egg-info/requires.txt
+batchbeagle.egg-info/top_level.txt
+batchbeagle/aws/__init__.py
+batchbeagle/aws/batch.py

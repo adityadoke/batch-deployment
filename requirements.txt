@@ -1,0 +1,12 @@
+boto3
+bumpversion
+click
+PyYaml
+Sphinx
+sphinx-autobuild
+sphinx-click
+sphinx_rtd_theme
+tox
+twine
+tzlocal
+wheel

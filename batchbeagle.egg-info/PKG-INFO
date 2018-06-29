@@ -1,0 +1,13 @@
+Metadata-Version: 1.1
+Name: batchbeagle
+Version: 0.2.0
+Summary: AWS Batch related deployment tools
+Home-page: https://github.com/caltechads/batchbeagle
+Author: Caltech IMSS ADS
+Author-email: imss-ads-staff@caltech.edu
+License: UNKNOWN
+Description: UNKNOWN
+Keywords: aws,batch
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
